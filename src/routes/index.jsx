@@ -2,7 +2,7 @@ import React from 'react';
 
 const IndexRoute = () => {
   return (
-    <div className='text-center'>
+    <div className='text-center flex-1'>
       <h1 className='text-3xl font-bold text-[var(--base-color)] '>
         Welcome to Team Management Dashboard
       </h1>

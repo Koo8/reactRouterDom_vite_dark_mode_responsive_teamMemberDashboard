@@ -52,10 +52,13 @@ const ContactRoute = () => {
 
   return (
     // <div className='w-full h-full flex justify-start'>
-    <div id='contact-box' className=' flex max-w-2xl gap-8'>
+    <div
+      id='contact-box'
+      className='flex md:flex-row flex-col max-w-2xl gap-8 md:justify-start justify-center items-center'
+    >
       <div className='overflow-hidden '>
         <img
-          className='object-fill w-48 h-48 rounded-md p-2 border-r-[0.5px]'
+          className='object-fill md:w-48 w-36 md:h-48 h-36 rounded-md p-2 md:border-r-[0.5px] border-b-[0.5px] md:border-b-0'
           src={contact.avatar || null}
           alt=''
         />
@@ -63,7 +66,7 @@ const ContactRoute = () => {
       <div className='flex flex-col max-w-[400px] '>
         <div className='flex items-start mb-3'>
           {contact.fn || contact.ln ? (
-            <h2 className='font-semibold text-3xl'>
+            <h2 className='font-semibold md:text-3xl text-xl'>
               {capFirstLetter(contact.fn)} {capFirstLetter(contact.ln)}
             </h2>
           ) : (
@@ -125,7 +128,7 @@ const Star = ({ contact }) => {
       {' '}
       {/* the formData will go to 'request' of action when 'post'ed */}
       <button type='submit' name='favorite' value={isFav ? 'false' : 'true'}>
-        {console.log(`isFav inside button ${isFav}`)}
+        {/* {console.log(`isFav inside button ${isFav}`)} */}
         {isFav ? (
           <div className='hover:-translate-y-[1px] duration-300 text-yellow-500 '>
             {'\u2605'}

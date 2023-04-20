@@ -74,14 +74,31 @@
 
 ## I add these more features for this app
 
-#### save to shared DB
-
 #### add GoogleFont
 
-#### PWA and installable
+- adding googlefonts for universal use, go to index.css add
+
+  html {
+  font-family: 'Poppins', sans-serif;
+  }
+
+- using googlefonts as a tailwindcss class, go to tailwindcss.config, add fontFamily 'open-sans' ==>
+  theme: {
+  fontFamily: {
+  "open-sans": ['Open Sans', 'sans-serif'],
+  },
+  },
+  then, use font-open-sans as the class name. I use this for <Button> font design
 
 #### responsive
 
-#### add icons for mode, github, discord, blog
+- limit the height of the left list of members area for mobile
+- insert the <Outlet> of <root> between list and <h1> title
+- providing offline experience ==> 'After determining which features your users expect to work offline, you'll need to make your content available and adaptable to offline contexts. In addition, you can use IndexedDB, an in-browser NoSQL storage system, to store and retrieve data, and background sync (web API for defering actions until the user has stable connectivity.) to allow users to take actions while offline and defer server communications until the user has a stable connection again. You can also use service workers to store other kinds of content, such as images, video files, and audio files for offline use, as well as use them to implement safe, long-lived sessions to keep users authenticated. From a user experience perspective, you can use skeleton screens that give users a perception of speed and content while loading that can then fall back to cached content or an offline indicator as needed.'
 
-#### login page, protected content
+#### add dark mode and light mode
+
+- https://dev.to/bhendi/simplest-way-to-implement-darkmode-in-your-react-tailwind-project-2e14
+- add darkMode: 'class' inside tailwindcss config file.
+- add useTheme.js to set theme in localStorage and make toggleTheme method. use this for determine the initial theme selection and onclick the theme icons.
+- for define css, use 'dark:'

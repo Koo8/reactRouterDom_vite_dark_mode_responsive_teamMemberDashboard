@@ -3,11 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/log_10.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:ital,wght@0,200;0,300;1,100&display=swap"
+      rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Team Management API</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- <script>
+      const registerServiceWorker = async() =>{
+        if ("serviceWorker" in navigator) {
+          try {
+            const registration = await navigator.serviceWorker.register('/sw.js');
+            if (registration.installing) {
+              console.log("service worker installing");
+            } else  if (registration.waiting) {
+              console.log('service worker installed');
+            } else if (registration.active) {
+              console.log('service worker active')
+            }
+          }// see 'sw.js' => The install event is fired when an installation is successfully completed. The install event is generally used to populate your browser's offline caching capabilities with the assets you need to run your app offline.
+          catch(error){
+            console.log(`registration is failed with ${error}`)
+          }
+        }
+        
+      };
+
+      registerServiceWorker();
+    </script> -->
   </body>
 </html>

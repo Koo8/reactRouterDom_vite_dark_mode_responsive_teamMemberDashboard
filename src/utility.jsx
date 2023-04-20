@@ -1,6 +1,8 @@
 // useMemo for caching data
-
 import { matchSorter } from 'match-sorter';
+
+// localStorage: support string, so JSON.parse and JSON.stringify is needed for convering JSON to string. Not asynchronous. 10MB is limit. Good for simple data read-write operation
+// indexedDB: for complex data storage, has transactional capability, recommended for PWA storage, not promise based. See README for IndexedDB, use dexie.js for wrapper
 
 export async function getContacts(query) {
   await fakeNetwork(`getContacts:${query}`);

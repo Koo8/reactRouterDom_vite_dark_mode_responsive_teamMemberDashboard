@@ -12,6 +12,9 @@ import Contact from './Contact';
 import Input from './Input';
 import Button from './Button';
 
+import useTheme from '../useTheme';
+import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md';
+
 // for Get request, get query thru new URL(request.url).searchParams.get('q'), q is the 'name' of the search input field
 export async function loader({ request }) {
   // request has a url property
@@ -33,6 +36,7 @@ const Left = () => {
   const { contacts, query } = useLoaderData();
   const navigation = useNavigation(); // loading indicator
   const submit = useSubmit(); // to force a submit on a form without a button click
+  const { theme, toggleTheme } = useTheme();
 
   // for search spinning
   const isSearching = navigation.location;
@@ -41,18 +45,18 @@ const Left = () => {
 
   return (
     <div
-      className='w-80 h-full bg-slate-100 border-r-2 flex flex-col box-content'
+      className='md:w-96 w-full md:h-full  bg-slate-100 border-r-2 flex flex-col box-content dark:text-zinc-200 dark:bg-slate-500'
       id='left-sidebar'
     >
       <h1
         id='title'
-        className='before:content-[url("../../log_10.jpg")] before:w-5 before:h-3 before:scale-[0.4]  before:mr-10 before:mt-[-15px] order-1 border-t-[1px] flex justify-center items-center border-t-slate-200 pt-6 pb-10 px-8 text-xl font-semibold mt-5 tracking-wider text-[var(--base-color)] hover:text-blue-500 duration-300'
+        className='before:content-[url("../../log_10.jpg")] before:w-5 before:h-3 before:scale-[0.4]  before:mr-10 before:mt-[-15px] order-1 border-t-[1px] md:flex  hidden justify-center items-center border-t-slate-200 pt-6 pb-10 px-8 text-xl font-semibold mt-5 tracking-wider text-[var(--base-color)] hover:text-blue-500 duration-300'
       >
         <Link to='/'>Team Management</Link>
       </h1>
       <div
         id='search-and-new'
-        className=' flex gap-2 items-center justify-between px-3 border-b-slate-200 border-b-[1px] py-3 '
+        className=' flex gap-2 items-center md:justify-between justify-around px-3 border-b-slate-200 border-b-[1px] py-3 '
       >
         {/* Search Form is a GET, it has request.url.searchParams as request data.  no action needed */}
         <Form id='search-form' className='relative '>
@@ -73,6 +77,7 @@ const Left = () => {
             extra='pl-8 outline-none'
             placeholder='search'
             defaultValue={query}
+            className='dark:bg-slate-700'
             onChange={(e) => {
               // submit(e.currentTarget.form);// every change will be submitted and updated immediately
               // submit(e.currentTarget.form, { replace: true }); // replace: true, will not
@@ -91,10 +96,22 @@ const Left = () => {
             New
           </Button>
         </Form>
+        {/* toggle dark/light mode */}
+        <div>
+          {/* {console.log(`theme in left is ${theme}`)} */}
+          {theme === 'dark' ? (
+            <MdDarkMode className='text-slate-200' onClick={toggleTheme} />
+          ) : (
+            <MdOutlineLightMode
+              onClick={toggleTheme}
+              className='text-slate-900'
+            />
+          )}
+        </div>
       </div>
       {/* use RRD's loader to pass the contacts data instead of useContext from React */}
       {/* Contacts list display  */}
-      <div id='list-contact' className='flex-1 overflow-auto'>
+      <div id='list-contact' className='md:flex-1 h-48 md:h-auto overflow-auto'>
         {contacts.length ? (
           <ul className='pt-4 px-4 overflow-auto'>
             {contacts.map((item) => {

@@ -20,9 +20,13 @@ const Contact = ({ item }) => {
       }
     >
       <div>
-        <span>{(item.fn && firstName) || 'No  '}</span>
+        <span>
+          {(item.fn && firstName) || <i className='font-thin'>No </i>}
+        </span>
         <span> </span>
-        <span>{(item.ln && lastName) || 'Name'}</span>
+        <span>
+          {(item.ln && lastName) || <i className='font-thin'>Name </i>}
+        </span>
       </div>
       <span className='pl-5 text-yellow-500'>
         {item.favorite ? '\u2605' : ''}

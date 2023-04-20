@@ -2,11 +2,11 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {
-      backgroundImage: {
-        logo: "url('./public.log.jpg')",
-      },
+    extend: {},
+    fontFamily: {
+      'open-sans': ['Open Sans', 'sans-serif'],
     },
   },
   plugins: [],
+  darkMode: 'class', // for darkMode
 };

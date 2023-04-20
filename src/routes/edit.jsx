@@ -16,27 +16,36 @@ const Edit = () => {
   const { contact } = useLoaderData();
   return (
     <div>
-      <Form method='post' className='flex flex-col gap-4 max-w-2xl'>
+      <Form
+        method='post'
+        className='flex flex-col md:gap-4 gap-2 md:max-w-2xl w-full'
+      >
         {/* paragraph for fn and ln */}
         <label className='flex'>
-          <span className='w-32'>Name</span>
-          <div className='flex flex-1 gap-2'>
+          <span className='md:w-32 w-20 md:text-lg text-xs min-w-[80px] '>
+            Name
+          </span>
+          <div className='flex md:flex-row flex-col flex-1 gap-2 '>
             <Input
               type='text'
               name='fn'
               placeholder='first name'
               defaultValue={contact.fn}
+              className='flex-1'
             />
             <Input
               type='text'
               name='ln'
               placeholder='last name'
               defaultValue={contact.ln}
+              className='flex-1 md:text-lg text-xs'
             />
           </div>
         </label>
         <label className='flex'>
-          <span className='w-32'>Twitter</span>
+          <span className='md:w-32 w-20 md:text-lg text-xs min-w-[80px]'>
+            Twitter
+          </span>
           <Input
             type='text'
             name='twitter'
@@ -45,7 +54,9 @@ const Edit = () => {
           />
         </label>
         <label className='flex'>
-          <span className='w-32'>Avatar</span>
+          <span className='md:w-32 w-20 md:text-lg text-xs min-w-[80px]'>
+            Avatar
+          </span>
           <Input
             type='text'
             name='avatar'
@@ -54,7 +65,9 @@ const Edit = () => {
           />
         </label>
         <label className='flex'>
-          <span className='w-32'>Notes</span>
+          <span className='md:w-32 w-20 md:text-lg text-xs min-w-[80px]'>
+            Notes
+          </span>
           <textarea
             name='notes'
             id=''
@@ -63,7 +76,7 @@ const Edit = () => {
           ></textarea>
         </label>
         {/* buttons  */}
-        <p className='ml-32 flex gap-2'>
+        <p className='md:ml-32 ml-20 md:text-lg text-xs flex gap-2'>
           <Button type='submit'>Save</Button>
           {/* <button
             type='submit'
